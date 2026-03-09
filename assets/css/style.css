@@ -1,0 +1,46 @@
+body{
+background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+min-height:100vh;
+font-family: 'Segoe UI', sans-serif;
+}
+
+/* TITULO */
+.titulo{
+font-weight:700;
+color:#333;
+}
+
+/* CARDS */
+.canvas-card{
+transition: all 0.3s ease;
+border-radius:15px;
+}
+
+.canvas-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* CANVAS */
+.canvas-style{
+width:100%;
+max-width:280px;
+border-radius:10px;
+border:2px solid #e3e3e3;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+margin-top:10px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#212529;
+color:white;
+padding:20px 0;
+margin-top:50px;
+}
+
+.footer p{
+margin:0;
+font-size:14px;
+}
