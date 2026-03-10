@@ -2,123 +2,197 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Canvas 2D | Jolette Ochoa</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <style>
+        /* FONDO ANIMADO EN ROSA, MORADO Y AZUL */
+        body {
+            background: linear-gradient(-45deg, #fbcfe8, #e9d5ff, #bfdbfe, #f9a8d4);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: #4a5568;
+            margin: 0;
+        }
 
-<link rel="stylesheet" href="assets/css/styles.css">
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-<title>Intro Canvas 2D</title>
+        /* NAVBAR ESTILO CRISTAL */
+        .navbar {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: #6b21a8 !important;
+            font-size: 1.4rem;
+        }
+
+        .nav-link {
+            color: #6b21a8 !important;
+            font-weight: 600;
+        }
+
+        /* TÍTULO CON DEGRADADO */
+        .titulo {
+            font-weight: 800;
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #db2777, #7c3aed, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        /* TARJETAS (CARDS) MODERNAS */
+        .canvas-card {
+            background: rgba(255, 255, 255, 0.6) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            border-radius: 25px !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .canvas-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+            background: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .card-title {
+            color: #7c3aed;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+
+        /* ESTILO DEL CANVAS */
+        .canvas-style {
+            width: 100%;
+            max-width: 280px;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-top: 10px;
+        }
+
+        /* FOOTER ELEGANTE */
+        .footer {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: #4b5563;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .footer strong {
+            color: #db2777;
+        }
+
+        /* AJUSTES DE TEXTO */
+        .text-muted {
+            color: #6b7280 !important;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-<div class="container">
-<a class="navbar-brand fw-bold" href="#">Canvas 2D App</a>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🎨 Canvas 2D App</a>
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
 
-<div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item">
-<a class="nav-link active" href="#">Inicio</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Proyecto</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-
-
-<!-- CONTENIDO -->
-<main class="container mt-5">
-
-<div class="text-center mb-4">
-<h1 class="titulo">Objetos 2D mediante OOP</h1>
-<p class="text-muted">Ejemplo de Canvas API usando programación orientada a objetos</p>
-</div>
-
-<div class="row g-4">
-
-<!-- CANVAS 1 -->
-<div class="col-md-4">
-<div class="card shadow-lg border-0 h-100 canvas-card">
-
-<div class="card-body text-center">
-
-<h5 class="card-title">Objeto 2D</h5>
-
-<canvas class="canvas-style" id="canvasOOP"></canvas>
-
-</div>
-</div>
-</div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Proyecto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
-<!-- CANVAS 2 -->
-<div class="col-md-4">
-<div class="card shadow-lg border-0 h-100 canvas-card">
+    <main class="container mt-5">
 
-<div class="card-body text-center">
+        <div class="text-center mb-5">
+            <h1 class="titulo">Objetos 2D mediante OOP</h1>
+            <p class="text-muted">Explorando la Canvas API con Programación Orientada a Objetos</p>
+        </div>
 
-<h5 class="card-title">Objeto con Random</h5>
+        <div class="row g-4 justify-content-center">
 
-<canvas class="canvas-style" id="canvasRandom"></canvas>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100 canvas-card">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Objeto 2D Estático</h5>
+                        <canvas class="canvas-style" id="canvasOOP"></canvas>
+                    </div>
+                </div>
+            </div>
 
-</div>
-</div>
-</div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100 canvas-card">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Objeto con Random</h5>
+                        <canvas class="canvas-style" id="canvasRandom"></canvas>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100 canvas-card">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Múltiples objetos</h5>
+                        <canvas class="canvas-style" id="canvasMultiple"></canvas>
+                    </div>
+                </div>
+            </div>
 
-<!-- CANVAS 3 -->
-<div class="col-md-4">
-<div class="card shadow-lg border-0 h-100 canvas-card">
+        </div>
 
-<div class="card-body text-center">
-
-<h5 class="card-title">Múltiples objetos</h5>
-
-<canvas class="canvas-style" id="canvasMultiple"></canvas>
-
-</div>
-</div>
-</div>
-
-</div>
-
-</main>
-
-
-<!-- FOOTER -->
-<footer class="footer mt-5">
-
-<div class="container text-center">
-
-<p class="mb-1">
-Aplicación Canvas 2D - Graficacion
-</p>
-
-<p class="mb-0">
-Programador: <strong>Jolette Ochoa</strong> | 2026
-</p>
-
-</div>
-
-</footer>
+    </main>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-2">
+                <strong>Aplicación Canvas 2D</strong> •Graficación
+            </p>
+            <p class="mb-0">
+                Desarrollado por: <strong>Jolette Ochoa</strong> | © 2026
+            </p>
+        </div>
+    </footer>
 
-<script src="./assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="./assets/js/main.js"></script>
 
 </body>
 </html>

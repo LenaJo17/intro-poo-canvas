@@ -85,15 +85,7 @@ for (let i = 0; i < MaxCircle; i++) {
   let x = Math.random() * (canvasMultiple.width - r * 2) + r;
   let y = Math.random() * (canvasMultiple.height - r * 2) + r;
 
-  let circle = new Circle(
-    x,
-    y,
-    r,
-    randomColor(),
-    i + 1,
-    randomColor(),
-    randomColor()
-  );
+  let circle = new Circle( x, y, r, randomColor(), i + 1, randomColor(), randomColor());
 
   circle.draw(ctxMultiple);
 }

@@ -1,46 +1,81 @@
-body{
-background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
-min-height:100vh;
-font-family: 'Segoe UI', sans-serif;
+/* PALETA DE COLORES: Rosa, Morado, Azul Clarito */
+body {
+    /* Degradado animado de fondo */
+    background: linear-gradient(135deg, #fbcfe8, #e9d5ff, #bfdbfe);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color: #4a4a4a;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NAVBAR MODERNA */
+.navbar {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px); /* Efecto borroso */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-brand, .nav-link {
+    color: #6b21a8 !important; /* Morado oscuro para contraste */
 }
 
 /* TITULO */
-.titulo{
-font-weight:700;
-color:#333;
+.titulo {
+    font-weight: 800;
+    background: linear-gradient(to right, #db2777, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
 }
 
-/* CARDS */
-.canvas-card{
-transition: all 0.3s ease;
-border-radius:15px;
+/* CARDS (Efecto Cristal) */
+.canvas-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 20px !important;
 }
 
-.canvas-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.canvas-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.card-title {
+    color: #7c3aed;
+    font-weight: 600;
 }
 
 /* CANVAS */
-.canvas-style{
-width:100%;
-max-width:280px;
-border-radius:10px;
-border:2px solid #e3e3e3;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-margin-top:10px;
+.canvas-style {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 15px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+    margin-top: 10px;
+    background-color: white; /* Para que el dibujo resalte */
 }
 
 /* FOOTER */
-
-.footer{
-background:#212529;
-color:white;
-padding:20px 0;
-margin-top:50px;
+.footer {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    color: #4b5563;
+    padding: 30px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.footer p{
-margin:0;
-font-size:14px;
+.footer strong {
+    color: #db2777; /* Nombre en rosa */
 }
